@@ -72,6 +72,6 @@ const App: React.FC = () => {
       <AdmissionFeeCalculator />
     </div>
   );
-}
+};
 
 export default App;

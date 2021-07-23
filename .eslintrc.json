@@ -35,7 +35,8 @@
         ],
         "semi": [
             "error",
-            "always"
+            "always",
+            { "omitLastInOneLineBlock": true}
         ]
     }
 }
