@@ -1,11 +1,12 @@
 import React from 'react';
+import { Type } from 'typescript';
 import './App.css';
 
-class Detail extends React.Component {
+class Detail extends React.Component<DetailProps, {}> {
   render() {
     return (
       <div >
-        <div className="classification-name">名前</div>
+        <div className="classification-name">{this.props.classification.name}</div>
         <div className="description">説明</div>
         <div className="unit-price">0円</div>
         <div className="num-people">
@@ -21,6 +22,11 @@ class Detail extends React.Component {
       </div>
     );
   }
+}
+
+
+type DetailProps = {
+    classification: FeeClassification;
 }
 
 class Summary extends React.Component {
@@ -50,6 +56,14 @@ class AdmissionFeeCalculator extends React.Component {
       </>
     );
   }
+}
+
+type FeeClassification = {
+    name: string;
+    description: string;
+    unitPrice: number;
+    numOfPeople: number;
+    totalPrice: number;
 }
 
 const App: React.FC = () => {
