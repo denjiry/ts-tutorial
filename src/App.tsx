@@ -48,17 +48,17 @@ type DetailState = {
     numOfPeople: number;
 }
 
-class Summary extends React.Component {
+class Summary extends React.Component<SummaryProps> {
   render() {
     return (
       <div>
         <div className="party">
-          <input type="text" className="party" value="0" />
+          <input type="text" className="party" value={this.props.numOfPeople} />
           <span>名様</span>
         </div>
         <div className="total-amount">
           <span>合計</span>
-          <input type="text" className="total-amount" value="0" />
+          <input type="text" className="total-amount" value={this.props.totalAmount} />
           <span>円</span>
         </div>
       </div>
@@ -66,9 +66,12 @@ class Summary extends React.Component {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
+type SummaryProps = {
+  numOfPeople: number;
+  totalAmount: number;
+}
+
 class AdmissionFeeCalculator extends React.Component<{}, AdmissionFeeCalculatorState> {
-  // eslint-disable-next-line @typescript-eslint/ban-types
   constructor(props: {}) {
     super(props);
     const adults: FeeClassification = {
@@ -121,7 +124,7 @@ class AdmissionFeeCalculator extends React.Component<{}, AdmissionFeeCalculatorS
     const details = this.state.feeClassifications.map((fc, idx) => {
       return (
         <Detail key={idx.toString()} classification={fc}
-          onNumOfonNumOfPeopleChange={n => this.handleNumOfPeopleChange(idx, n)} />
+          onNumOfPeopleChange={n => this.handleNumOfPeopleChange(idx, n)} />
       );
     });
     const numOfPeople = this.state.feeClassifications.map(fc => fc.numOfPeople).reduce((p, c) => p + c);
