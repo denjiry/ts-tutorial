@@ -71,7 +71,9 @@ type SummaryProps = {
   totalAmount: number;
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 class AdmissionFeeCalculator extends React.Component<{}, AdmissionFeeCalculatorState> {
+  // eslint-disable-next-line @typescript-eslint/ban-types
   constructor(props: {}) {
     super(props);
     const adults: FeeClassification = {
