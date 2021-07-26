@@ -100,8 +100,8 @@ class AdmissionFeeCalculator extends React.Component<{}, AdmissionFeeCalculatorS
       unitPrice: 0,
       numOfPeople: 0,
       totalPrice: 0,
-
     };
+    this.state = { feeClassifications: [adults, students, children, infants] };
   }
 
   handleNumOfPeopleChange(idx: number, num: number) {
